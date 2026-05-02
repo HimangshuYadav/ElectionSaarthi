@@ -1,0 +1,146 @@
+.bg-light {
+  background-color: var(--white);
+}
+
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline-nav {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  overflow-x: auto;
+  padding-bottom: 20px;
+}
+
+.timeline-nav::-webkit-scrollbar {
+  height: 4px;
+}
+
+.timeline-nav::-webkit-scrollbar-thumb {
+  background-color: var(--saffron);
+  border-radius: 4px;
+}
+
+.timeline-nav::before {
+  content: '';
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #e2e8f0;
+  z-index: 0;
+}
+
+.timeline-nav-item {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  min-width: 100px;
+  transition: var(--transition);
+}
+
+.timeline-nav-icon {
+  width: 60px;
+  height: 60px;
+  background-color: var(--white);
+  border: 2px solid #e2e8f0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: var(--transition);
+}
+
+.timeline-nav-text {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.timeline-nav-item:hover .timeline-nav-icon {
+  border-color: var(--saffron);
+  transform: translateY(-4px);
+}
+
+.timeline-nav-item.active .timeline-nav-icon {
+  border-color: var(--saffron);
+  background-color: var(--saffron);
+  box-shadow: var(--shadow-saffron);
+  transform: scale(1.1);
+}
+
+.timeline-nav-item.active .timeline-nav-text {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.timeline-content-wrapper {
+  position: relative;
+  min-height: 200px;
+}
+
+.timeline-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 32px;
+}
+
+.timeline-content.active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.content-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.phase-badge {
+  background-color: rgba(19, 136, 8, 0.1);
+  color: var(--green);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.timeline-content h3 {
+  font-size: 1.5rem;
+  color: var(--navy);
+}
+
+.timeline-content p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .timeline-nav {
+    justify-content: flex-start;
+    gap: 24px;
+  }
+}

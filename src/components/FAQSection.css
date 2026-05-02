@@ -1,0 +1,135 @@
+.faq-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+.faq-illustration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  position: sticky;
+  top: 100px;
+}
+
+.assistant-avatar {
+  font-size: 5rem;
+  background-color: var(--white);
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: var(--shadow-md);
+  border: 4px solid var(--saffron);
+}
+
+.chat-bubble {
+  background-color: var(--navy);
+  color: var(--white);
+  padding: 20px;
+  border-radius: 20px;
+  border-top-left-radius: 4px;
+  box-shadow: var(--shadow-md);
+  font-size: 1.05rem;
+  line-height: 1.5;
+  position: relative;
+}
+
+.chat-bubble::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  border-width: 0 10px 10px 10px;
+  border-style: solid;
+  border-color: transparent transparent var(--navy) transparent;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-item.open {
+  box-shadow: var(--shadow-md);
+  border-color: rgba(255, 153, 51, 0.3);
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--navy);
+  transition: background-color 0.2s ease;
+}
+
+.faq-question:hover {
+  background-color: rgba(0, 0, 128, 0.02);
+}
+
+.faq-icon {
+  font-size: 1.5rem;
+  color: var(--saffron);
+  transition: transform 0.3s ease;
+}
+
+.faq-item.open .faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-answer-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.faq-item.open .faq-answer-wrapper {
+  max-height: 300px; /* arbitrary max-height larger than expected content */
+}
+
+.faq-answer {
+  padding: 0 24px 24px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .faq-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .faq-illustration {
+    position: static;
+    flex-direction: row;
+    margin-bottom: 32px;
+  }
+  
+  .assistant-avatar {
+    width: 80px;
+    height: 80px;
+    font-size: 3rem;
+  }
+  
+  .chat-bubble::before {
+    top: 20px;
+    left: -10px;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent var(--navy) transparent transparent;
+  }
+}
