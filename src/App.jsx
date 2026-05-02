@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
-import Timeline from './components/Timeline';
-import VoterGuide from './components/VoterGuide';
-import FAQSection from './components/FAQSection';
 import Footer from './components/Footer';
+
+// Lazy load below-the-fold components
+const Timeline = lazy(() => import('./components/Timeline'));
+const VoterGuide = lazy(() => import('./components/VoterGuide'));
+const FAQSection = lazy(() => import('./components/FAQSection'));
 
 function App() {
   return (
@@ -12,9 +14,11 @@ function App() {
       <Navbar />
       <main>
         <HeroSection />
-        <Timeline />
-        <VoterGuide />
-        <FAQSection />
+        <Suspense fallback={<div className="container section" style={{textAlign: 'center'}}>Loading...</div>}>
+          <Timeline />
+          <VoterGuide />
+          <FAQSection />
+        </Suspense>
       </main>
       <Footer />
     </>

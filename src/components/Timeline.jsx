@@ -55,16 +55,20 @@ const Timeline = () => {
         <h2 className="section-title">The Election Process</h2>
         
         <div className="timeline-container">
-          <div className="timeline-nav">
+          <div className="timeline-nav" role="tablist">
             {timelineData.map((item, index) => (
-              <div 
+              <button 
                 key={item.id}
                 className={`timeline-nav-item ${index === activeStep ? 'active' : ''}`}
                 onClick={() => setActiveStep(index)}
+                role="tab"
+                aria-selected={index === activeStep}
+                aria-controls={`timeline-panel-${item.id}`}
+                id={`timeline-tab-${item.id}`}
               >
-                <div className="timeline-nav-icon">{item.icon}</div>
+                <div className="timeline-nav-icon" aria-hidden="true">{item.icon}</div>
                 <div className="timeline-nav-text">{item.phase}</div>
-              </div>
+              </button>
             ))}
           </div>
 
@@ -73,6 +77,10 @@ const Timeline = () => {
               <div 
                 key={item.id} 
                 className={`timeline-content glass-panel ${index === activeStep ? 'active' : ''}`}
+                role="tabpanel"
+                id={`timeline-panel-${item.id}`}
+                aria-labelledby={`timeline-tab-${item.id}`}
+                hidden={index !== activeStep}
               >
                 <div className="content-header">
                   <span className="phase-badge">{item.date}</span>

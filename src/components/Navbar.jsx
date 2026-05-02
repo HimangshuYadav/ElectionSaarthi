@@ -13,19 +13,19 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} aria-label="Main Navigation">
       <div className="container navbar-container">
         <div className="navbar-logo">
-          <span className="logo-icon">🇮🇳</span>
+          <span className="logo-icon" aria-hidden="true">🇮🇳</span>
           <span className="logo-text">Election<span className="text-saffron">Saarthi</span></span>
         </div>
-        <div className="navbar-links">
+        <div className="navbar-links" aria-label="Navigation Links">
           <a href="#home" className="nav-link">Home</a>
           <a href="#timeline" className="nav-link">Process</a>
           <a href="#voter-guide" className="nav-link">Voter Guide</a>
           <a href="#faq" className="nav-link">FAQ</a>
         </div>
-        <button className="btn btn-primary nav-btn">Get Started</button>
+        <a href="#timeline" className="btn btn-primary nav-btn">Get Started</a>
       </div>
     </nav>
   );

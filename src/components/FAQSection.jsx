@@ -54,11 +54,19 @@ const FAQSection = () => {
                 <button 
                   className="faq-question" 
                   onClick={() => toggleFAQ(index)}
+                  aria-expanded={openIndex === index}
+                  aria-controls={`faq-answer-${index}`}
+                  id={`faq-question-${index}`}
                 >
                   <span>{faq.question}</span>
-                  <span className="faq-icon">{openIndex === index ? '−' : '+'}</span>
+                  <span className="faq-icon" aria-hidden="true">{openIndex === index ? '−' : '+'}</span>
                 </button>
-                <div className="faq-answer-wrapper">
+                <div 
+                  className="faq-answer-wrapper"
+                  id={`faq-answer-${index}`}
+                  role="region"
+                  aria-labelledby={`faq-question-${index}`}
+                >
                   <div className="faq-answer">
                     {faq.answer}
                   </div>

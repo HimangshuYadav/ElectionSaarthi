@@ -28,9 +28,9 @@ const Footer = () => {
         <div className="footer-links-group">
           <h4>Official Resources</h4>
           <ul>
-            <li><a href="https://eci.gov.in/" target="_blank" rel="noreferrer">Election Commission of India</a></li>
-            <li><a href="https://voters.eci.gov.in/" target="_blank" rel="noreferrer">NVSP Portal</a></li>
-            <li><a href="https://results.eci.gov.in/" target="_blank" rel="noreferrer">Election Results</a></li>
+            <li><a href="https://eci.gov.in/" target="_blank" rel="noopener noreferrer">Election Commission of India</a></li>
+            <li><a href="https://voters.eci.gov.in/" target="_blank" rel="noopener noreferrer">NVSP Portal</a></li>
+            <li><a href="https://results.eci.gov.in/" target="_blank" rel="noopener noreferrer">Election Results</a></li>
           </ul>
         </div>
       </div>

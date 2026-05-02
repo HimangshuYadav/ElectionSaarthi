@@ -49,7 +49,7 @@ const VoterGuide = () => {
           <div className="guide-cta glass-panel">
             <h3>Ready to Register?</h3>
             <p>Visit the official National Voters' Services Portal (NVSP) to start your application.</p>
-            <a href="https://voters.eci.gov.in/" target="_blank" rel="noreferrer" className="btn btn-primary">
+            <a href="https://voters.eci.gov.in/" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
               Visit NVSP Portal
             </a>
           </div>
