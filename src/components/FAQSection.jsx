@@ -39,7 +39,9 @@ const FAQSection = () => {
         
         <div className="faq-container">
           <div className="faq-illustration">
-            <div className="assistant-avatar">🤖</div>
+            <div className="assistant-avatar">
+              <span role="img" aria-label="Robot assistant">🤖</span>
+            </div>
             <div className="chat-bubble">
               Hi! I'm ElectionSaarthi. Here are some of the most frequently asked questions. Need more help? Let me know!
             </div>

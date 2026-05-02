@@ -40,7 +40,9 @@ const VoterGuide = () => {
           {steps.map((step, index) => (
             <div key={index} className="guide-card glass-panel">
               <div className="step-number">{index + 1}</div>
-              <div className="guide-icon">{step.icon}</div>
+              <div className="guide-icon">
+                <span role="img" aria-label={`${step.title} icon`}>{step.icon}</span>
+              </div>
               <h3>{step.title}</h3>
               <p>{step.desc}</p>
             </div>
